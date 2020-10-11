@@ -27,7 +27,8 @@ app.get('/weather',(req,res)=>{
     } */
     const address = req.query.address;
     if(address){
-        const mapboxUrl=`https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1IjoiYXJqdW5ubm4iLCJhIjoiY2tkaXpza25zMGEzZDMwbXJ1a2QyY2R6ZSJ9.4OkX-2PcmBvD-5wn7pgqRQ&limit=1`;
+        const token = 'your token';
+        const mapboxUrl=`https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=${token}&limit=1`;
         findGeolocationByPlace(mapboxUrl,(weather,error,placename)=>{
             res.send({
                 weather,
